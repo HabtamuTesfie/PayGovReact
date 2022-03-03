@@ -1,0 +1,23 @@
+package com.mycompany.myapp;
+
+import com.mycompany.myapp.domain.Pay;
+import com.mycompany.myapp.domain.ProductInfo;
+import com.mycompany.myapp.domain.EmployeeAddress;
+
+rule "PAYMENT APPROVAL"
+    when
+     object1: ProductInfo($firstId : productPrice)
+     object2: EmployeeAddress($secondId : name)
+      app:Pay(paymentAmount >= $firstId && name==$secondId )
+    then
+       app.setApproval("accepted");
+end
+
+rule "PAYMENT DECLINE"
+    when
+       object1: ProductInfo($firstId : productPrice)
+       object2: EmployeeAddress($secondId : name)
+       app:Pay(paymentAmount < $firstId || name!=$secondId)
+    then
+        app.setApproval("rejected");
+end

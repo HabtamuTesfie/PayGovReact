@@ -68,7 +68,7 @@ public class ReactProjectApp {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(ReactProjectApp.class);
        // app.setAdditionalProfiles("dev");
-       // DefaultProfileUtil.addDefaultProfile(app);
+        DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();
         logApplicationStartup(env);
     }

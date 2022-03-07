@@ -5,12 +5,13 @@ pipeline {
         bitbucketPush()
     }
 
-
-    stages {
+  stages {
         stage ('Test & Build Artifact') {
-             steps {
-                bat './gradlew assemble docker'
+
+            steps {
+                bat './gradlew clean build'
+
             }
         }
-}
+    }
 }

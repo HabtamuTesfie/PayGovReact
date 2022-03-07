@@ -16,9 +16,9 @@ pipeline {
         }
         stage ('Build & Push docker image') {
             steps {
-               
-         bat 'docker build --build-arg JAR_FILE=build/libs/\*.jar -t springio/gs-spring-boot-docker'
-                
+                withDockerRegistry(credentialsId: '9b38192f-91c0-4789-ac24-85baabb4e094', url: 'https://index.docker.io/v1/') {
+                    bat 'docker build'
+
             }
         }
 

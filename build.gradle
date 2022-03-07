@@ -26,8 +26,7 @@ plugins {
     id "org.sonarqube"
     id "io.spring.nohttp"
     id "com.github.andygoossens.gradle-modernizer-plugin"
-    id 'com.palantir.docker' version '0.26.0'
-    id 'com.palantir.docker-run' version '0.26.0'
+
     //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 

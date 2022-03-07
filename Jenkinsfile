@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Long-running Verification') {
             environment {
-                SONAR_LOGIN = credentials('SONARCLOUD_TOKEN')
+                SONAR_LOGIN = credentials('3156ecd9c90dbee47c9718a7eb216b27ca24a2e3')
             }
             parallel {
                 stage('Integration Tests') {
@@ -58,7 +58,7 @@ pipeline {
         }
         stage('Deploy to Production') {
             environment {
-                HEROKU_API_KEY = credentials('HEROKU_API_KEY')
+                HEROKU_API_KEY = credentials('928a90de-931a-47a2-8274-8f66d944a239')
             }
             steps {
                 unstash 'app'

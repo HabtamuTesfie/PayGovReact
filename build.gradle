@@ -345,7 +345,7 @@ dependencies {
     implementation "org.hibernate:hibernate-entitymanager"
     implementation "org.hibernate.validator:hibernate-validator"
     implementation "org.liquibase:liquibase-core"
-    implementation 'tech.simter:simter-rest-jaxrs-jersey:1.1.0'
+   // implementation 'tech.simter:simter-rest-jaxrs-jersey:1.1.0'
     liquibaseRuntime "org.liquibase:liquibase-core"
     liquibaseRuntime "org.liquibase.ext:liquibase-hibernate5:${liquibaseHibernate5Version}"
     liquibaseRuntime sourceSets.main.compileClasspath

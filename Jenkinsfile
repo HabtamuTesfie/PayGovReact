@@ -1,10 +1,31 @@
 pipeline {
     agent any
+
+    triggers{
+        bitbucketPush()
+    }
+
+
     stages {
-        stage('Build') {
+        stage ('Test & Build Artifact') {
+            agent {
+                docker {
+                    image 'openjdk:11'
+                    args '-v "$PWD":/app'
+                    reuseNode true
+                }
+            }
             steps {
-               bat './gradlew clean build'
+                bat './gradlew clean build'
             }
         }
+        stage ('Build & Push docker image') {
+            steps {
+                withDockerRegistry(credentialsId: '9b38192f-91c0-4789-ac24-85baabb4e094', url: 'https://index.docker.io/v1/') {
+                    bat 'docker push turkogluc/spring-jenkins-demo'
+                }
+            }
+        }
+
     }
 }

@@ -47,8 +47,11 @@ spring:
     emailPassword: 0938633388H
     # redirect url
     RedirectURL: https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=
-    returnURL: http://localhost:9000/payment-save
-    cancelURL: http://localhost:9000/
+   # returnURL: http://localhost:9000/payment-save
+   # cancelURL: http://localhost:9000/
+
+     returnURL: https://payment-system-web-app.herokuapp.com/payment-save
+     cancelURL: https://payment-system-web-app.herokuapp.com/
 
 
   datasource:
